@@ -4,7 +4,13 @@ Hypothesis: A crowd can create more perverse-instantiation resistant objective f
 
 ## Experimental design
 
-To be determined.
+1. Double blind study.
+
+2. Experts and non-experts submit objective functions via chat in Twitch.
+
+3. Non-experts are shown robots evolved against both sets of functions.
+
+4. If non-experts prefer those evolved using non-expert objective functions, this supports the hypothesis.
 
 ## Interface design
 
