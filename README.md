@@ -1,6 +1,6 @@
 # TwitchPlaysLossFunction
 
-Hypothesis: A crowd can create more perverse-instantiation resistant objective functions (PIROF) than lone experts can.
+Hypothesis: A crowd can create more perverse-instantiation resistant objective functions (PIROFs) than lone experts can.
 
 ## Experimental design
 
@@ -16,7 +16,7 @@ Hypothesis: A crowd can create more perverse-instantiation resistant objective f
 
 1. Users type equations into chat.
 
-2. Equations manipulate matrices, but must ultimate result in a scalar.
+2. Equations manipulate matrices, but must ultimately result in a scalar.
 
 3. Matrices are visualized as heatmaps.
 
