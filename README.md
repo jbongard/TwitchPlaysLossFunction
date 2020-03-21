@@ -1,5 +1,7 @@
 # TwitchPlaysLossFunction
 
+Rationale:  Deep learning required massive scale ups in data and architecture size. Robotics needs a massive scale up in loss functions.
+
 Hypothesis: A crowd can create more perverse-instantiation resistant objective functions (PIROFs) than lone experts can.
 
 ## Experimental design
