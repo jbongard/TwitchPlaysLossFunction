@@ -3,6 +3,14 @@ import matplotlib
 import matplotlib.colors as colors
 import matplotlib.pyplot as plt
 
+from fitnessFunction import FITNESS_FUNCTION
+
+fitFn = FITNESS_FUNCTION()
+
+fitFn.Print()
+
+exit()
+
 # This dictionary defines the colormap
 cdict = {'red':  ((0.0, 0.0, 0.0),   # no red at 0
                   (0.5, 1.0, 1.0),   # all channels set to 1.0 at 0.5 to create white
@@ -33,8 +41,8 @@ for i in range(0,2):
             cols = 1
             rows = 1
         else: 
-            cols = np.random.randint(1,100)
-            rows = np.random.randint(1,100)
+            cols = np.random.randint(1,500)
+            rows = np.random.randint(1,500)
 
         sensorData = np.random.random([cols,rows]) * 2 - 1
         
