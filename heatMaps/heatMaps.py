@@ -1,4 +1,3 @@
-import numpy as np
 import matplotlib
 import matplotlib.colors as colors
 import matplotlib.pyplot as plt
@@ -7,9 +6,10 @@ from fitnessFunction import FITNESS_FUNCTION
 
 fitFn = FITNESS_FUNCTION()
 
-fitFn.Print()
+fitFn.Draw()
 
-exit()
+
+
 
 # This dictionary defines the colormap
 cdict = {'red':  ((0.0, 0.0, 0.0),   # no red at 0
@@ -27,9 +27,6 @@ cdict = {'red':  ((0.0, 0.0, 0.0),   # no red at 0
 
 # Create the colormap using the dictionary
 GnRd = colors.LinearSegmentedColormap('GnRd', cdict)
-
-
-fig, axarr = plt.subplots(2,2)
 
 fig.suptitle('Best bot so far.', fontsize=16)
 
