@@ -11,9 +11,7 @@ class FITNESS_FUNCTION:
         self.variables = {}
 
         self.Add_Variable('s')
-        self.Add_Variable('a')
-        self.Add_Variable('b')
-        self.Add_Variable('c')
+        self.Add_Variable('f')
 
     def Add_Variable(self,variableName):
 
@@ -27,9 +25,11 @@ class FITNESS_FUNCTION:
 
         self.Assign_Variables_To_Panels()
 
+        self.Hide_All_Panels()
+
         for variable in self.variables:
 
-            self.variables[variable].Draw(self.axarr)
+            self.variables[variable].Draw(self.fig,self.axarr)
 
         plt.show()
 
@@ -57,6 +57,14 @@ class FITNESS_FUNCTION:
                 column = 0
                 row    = row + 1
 
+    def Hide_All_Panels(self):
+
+        for i in range(self.numberOfRows):
+
+            for j in range(self.numberOfColumns):
+
+                self.axarr[i,j].axis('off')
+ 
     def Prepare_To_Draw(self):
 
         self.numberOfRows = math.ceil( math.sqrt( len(self.variables) ) )

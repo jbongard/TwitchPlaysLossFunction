@@ -7,24 +7,53 @@ class FITNESS_VARIABLE:
 
         self.name = name
 
-        self.cols = np.random.randint(1,500)
-        self.rows = np.random.randint(1,500)
+        if self.name == c.nameOfFinalFitnessValue:
 
-        self.data = np.random.random([self.cols,self.rows]) * 2 - 1
+            self.rows    = 1
+            self.cols    = 1
 
-    def Assign_To_Panel(self,row,column):
+        else:
+            self.rows = np.random.randint(1,c.maximumDataRows)
+            self.cols = np.random.randint(1,c.maximumDataColumns)
 
-        self.row    = row
+        self.data = np.random.random([self.cols,self.rows]) * c.sensorDataRange + c.sensorDataValueMinimum 
 
-        self.column = column
+    def Assign_To_Panel(self,panelRow,panelColumn):
 
-    def Draw(self,axis):
+        self.panelRow    = panelRow
 
-        axis[self.row,self.column].set_title(self.name)
+        self.panelColumn = panelColumn
 
-        im = axis[self.row,self.column].pcolormesh(self.data,cmap=c.GnRd,vmin=-1,vmax=1)
+    def Draw(self,fig,axis):
 
-        
+        axis[self.panelRow,self.panelColumn].axis('on')
+
+        axis[self.panelRow,self.panelColumn].set_title(self.name)
+
+        im = axis[self.panelRow,self.panelColumn].pcolormesh(self.data,cmap=c.GnRd,vmin= c.sensorDataValueMinimum,vmax=c.sensorDataValueMaximum)
+
+        axis[self.panelRow,self.panelColumn].set_xticks([0,self.rows-1])
+        axis[self.panelRow,self.panelColumn].set_yticks([0,self.cols-1])
+
+        fig.colorbar(im , ax=axis[self.panelRow,self.panelColumn] , ticks = [-1,1] )
+
+        axis[self.panelRow,self.panelColumn].set_xticks([0,self.rows-1])
+        axis[self.panelRow,self.panelColumn].set_yticks([0,self.cols-1])
+
+        if self.name == c.nameOfFinalFitnessValue:
+
+            axis[self.panelRow,self.panelColumn].set_xticks([0.5])
+            axis[self.panelRow,self.panelColumn].set_yticks([0.5])
+
+            axis[self.panelRow,self.panelColumn].set_xticklabels([0])
+            axis[self.panelRow,self.panelColumn].set_yticklabels([0])
+        else:
+            axis[self.panelRow,self.panelColumn].set_xticks([0 + 0.5 , self.rows - 0.5])
+            axis[self.panelRow,self.panelColumn].set_yticks([0 + 0.5 , self.cols - 0.5])
+
+            axis[self.panelRow,self.panelColumn].set_xticklabels([0 , self.rows - 1])
+            axis[self.panelRow,self.panelColumn].set_yticklabels([0 , self.cols - 1])
+ 
     def Get_Name(self):
 
         return self.name
