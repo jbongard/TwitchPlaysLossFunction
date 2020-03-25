@@ -31,9 +31,9 @@ class FITNESS_FUNCTION:
 
             self.variables[variable].Draw(self.fig,self.axarr)
 
-        plt.show()
+        self.fig.tight_layout()
 
-        exit()
+        plt.show()
 
     def Print(self):
 
