@@ -1,6 +1,4 @@
 import math
-import matplotlib
-import matplotlib.colors as colors
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -27,6 +25,8 @@ class FITNESS_FUNCTION:
 
         self.Prepare_To_Draw()
 
+        self.Assign_Variables_To_Panels()
+
         for variable in self.variables:
 
             self.variables[variable].Draw(self.axarr)
@@ -41,29 +41,29 @@ class FITNESS_FUNCTION:
 
 # ----------------------- Private functions ------------------------
 
+    def Assign_Variables_To_Panels(self):
+
+        row = 0
+        column = 0
+
+        for variable in self.variables:
+
+            self.variables[variable].Assign_To_Panel(row,column)
+
+            column = column + 1
+
+            if column == self.numberOfColumns:
+
+                column = 0
+                row    = row + 1
+
     def Prepare_To_Draw(self):
 
-        cdict = {'red':  ((0.0, 0.0, 0.0),   # no red at 0
-                          (0.5, 1.0, 1.0),   # all channels set to 1.0 at 0.5 to create white
-                          (1.0, 0.8, 0.8)),  # set to 0.8 so its not too bright at 1
+        self.numberOfRows = math.ceil( math.sqrt( len(self.variables) ) )
 
-                'green': ((0.0, 0.8, 0.8),   # set to 0.8 so its not too bright at 0
-                          (0.5, 1.0, 1.0),   # all channels set to 1.0 at 0.5 to create white
-                          (1.0, 0.0, 0.0)),  # no green at 1
+        self.numberOfColumns = self.numberOfRows
 
-                'blue':  ((0.0, 0.0, 0.0),   # no blue at 0
-                          (0.5, 1.0, 1.0),   # all channels set to 1.0 at 0.5 to create white
-                          (1.0, 0.0, 0.0))   # no blue at 1
-               }
-
-        # Create the colormap using the dictionary
-        GnRd = colors.LinearSegmentedColormap('GnRd', cdict)
-
-        numberOfRows = math.ceil( math.sqrt( len(self.variables) ) )
-
-        numberOfColumns = numberOfRows
-
-        self.fig, self.axarr = plt.subplots(numberOfRows , numberOfColumns)
+        self.fig, self.axarr = plt.subplots(self.numberOfRows , self.numberOfColumns)
 
         self.fig.suptitle('Best bot so far.', fontsize=16)
 
