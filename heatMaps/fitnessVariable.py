@@ -50,6 +50,20 @@ class FITNESS_VARIABLE:
 
             self.Set_Ticks(axis)
 
+        if self.name == c.nameOfRawSensorData:
+
+            self.Colorize_Y_Axis(axis)
+
+    def Colorize_Y_Axis(self,axis):
+
+        # axis[self.panelRow,self.panelColumn].tick_params(axis='x', colors=['red'])
+
+        ticks = axis[self.panelRow,self.panelColumn].yaxis.get_ticklabels()
+
+        ticks[0].set_color('red')
+
+        ticks[1].set_color('green')
+
     def Prepare_To_Draw(self,axis):
 
         axis[self.panelRow,self.panelColumn].axis('on')
