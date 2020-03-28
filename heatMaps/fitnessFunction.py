@@ -25,15 +25,13 @@ class FITNESS_FUNCTION:
 
         self.Assign_Variables_To_Panels()
 
-        self.Hide_All_Panels()
+        self.Hide_All_Unused_Panels()
 
         for variable in self.variables:
 
             self.variables[variable].Draw(self.fig,self.axarr)
 
-        self.fig.tight_layout()
-
-        plt.show()
+        self.Clean_Up_After_Drawing()
 
     def Print(self):
 
@@ -57,7 +55,13 @@ class FITNESS_FUNCTION:
                 column = 0
                 row    = row + 1
 
-    def Hide_All_Panels(self):
+    def Clean_Up_After_Drawing(self):
+
+        self.fig.tight_layout()
+
+        plt.show()
+
+    def Hide_All_Unused_Panels(self):
 
         for i in range(self.numberOfRows):
 

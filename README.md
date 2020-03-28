@@ -25,3 +25,13 @@ Hypothesis: A crowd can create more perverse-instantiation resistant objective f
 4. Sensor data is visualized in the 'root' matrix.
 
 5. The robot's body parts are colorized; sensor columns are shown in matching colors.
+
+## To do list:
+
+1. See if you can colorize the vertical axis of the raw sensor data.
+
+2. Visualize 'sensor' data drawn from a file.
+
+3. Create and left and right sides of equations.
+
+4. Allow the typing in of equations.
