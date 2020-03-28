@@ -35,3 +35,5 @@ Hypothesis: A crowd can create more perverse-instantiation resistant objective f
 3. Create and left and right sides of equations.
 
 4. Allow the typing in of equations.
+
+5. Fill in drawing of robot from here: https://docs.google.com/drawings/d/1v_ECJ3ZAOSW_05xPlm-8kim38GA94JrakpJc98ihnmw/edit?usp=sharing
