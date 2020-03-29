@@ -35,3 +35,20 @@ Hypothesis: A crowd can create more perverse-instantiation resistant objective f
 1. Fill in drawing of robot from here: https://docs.google.com/drawings/d/1v_ECJ3ZAOSW_05xPlm-8kim38GA94JrakpJc98ihnmw/edit?usp=sharing
 
 1. Create turret: the red/blue/green side barrels represent the rgb components of the ray sensor. The longer black barrel represents the length of the ray. The gun will sit on a turret that can rotate the gun side to side and up and down.
+
+1. Create tutorial with levels:
+
+1. f = 1
+
+1. a = 1
+
+1. f = a
+
+1. f = s[1,1]
+
+1. f = s[500,1]
+
+1. f = s[1,500]
+
+1. and so on.
+
