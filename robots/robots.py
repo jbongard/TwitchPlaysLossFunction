@@ -2,4 +2,5 @@ from robot import ROBOT
 
 robot = ROBOT()
 
-print(robot)
+robot.Write_Sensor_Data()
+
