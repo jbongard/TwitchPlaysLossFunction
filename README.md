@@ -28,9 +28,9 @@ Hypothesis: A crowd can create more perverse-instantiation resistant objective f
 
 ## To do list:
 
-1. Create and left and right sides of equations.
+1. Modify fitnessFunctions to pickle a default fitness function.
 
-1. Allow the typing in of equations.
+1. Then, chatbot can add, modify, or remove variables to/from pickled fit fn. 
 
 1. Fill in drawing of robot from here: https://docs.google.com/drawings/d/1v_ECJ3ZAOSW_05xPlm-8kim38GA94JrakpJc98ihnmw/edit?usp=sharing
 
