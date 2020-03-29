@@ -1,6 +1,36 @@
 import matplotlib
 import matplotlib.colors as colors
 
+# ----------------------------- Robot ------------------------------------------
+
+ROBOT_OBJECTS_MAIN_BODY = 0
+
+ROBOT_OBJECTS_UPPERLEG_BODY = 1
+ROBOT_OBJECTS_UPPERLEG_BODY = 2
+ROBOT_OBJECTS_UPPERLEG_BODY = 3
+ROBOT_OBJECTS_UPPERLEG_BODY = 4
+
+ROBOT_OBJECTS_LOWERLEG_BODY = 5
+ROBOT_OBJECTS_LOWERLEG_BODY = 6
+ROBOT_OBJECTS_LOWERLEG_BODY = 7
+ROBOT_OBJECTS_LOWERLEG_BODY = 8
+
+robotColors = {
+ROBOT_OBJECTS_MAIN_BODY     : (0.0 , 0.0 , 0.0 ),
+
+ROBOT_OBJECTS_UPPERLEG_BODY : (0.0 , 0.0 , 0.0 ),
+ROBOT_OBJECTS_UPPERLEG_BODY : (0.0 , 0.0 , 0.0 ),
+ROBOT_OBJECTS_UPPERLEG_BODY : (0.0 , 0.0 , 0.0 ),
+ROBOT_OBJECTS_UPPERLEG_BODY : (0.0 , 0.0 , 0.0 ),
+
+ROBOT_OBJECTS_LOWERLEG_BODY : (0.0 , 0.0 , 0.0 ),
+ROBOT_OBJECTS_LOWERLEG_BODY : (0.0 , 0.0 , 0.0 ),
+ROBOT_OBJECTS_LOWERLEG_BODY : (0.0 , 0.0 , 0.0 ),
+ROBOT_OBJECTS_LOWERLEG_BODY : (0.0 , 0.0 , 0.0 )
+}
+
+# ------------------------------ Sensor data -----------------------------------
+
 maximumDataRows    = 500
 maximumDataColumns = 500
 
