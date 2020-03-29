@@ -1,15 +1,11 @@
 from chat import CHAT
 
-chat = CHAT()
+while True:
 
-while not chat.Quit_Desired():
+    chat = CHAT() 
 
-    if chat.Valid_Fitness_Variable():
+    chat.Process_Chat()
 
-        chat.Print_Fitness_Variable_Entered_Successfully()
+    if chat.Quit_Desired():
 
-    else:
-
-        chat.Print_Fitness_Variable_Entered_Unsuccessfully()
-
-    chat = CHAT()
+        break

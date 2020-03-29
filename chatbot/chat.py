@@ -4,6 +4,17 @@ class CHAT:
 
         self.chat = input('Type in chat [q to quit]: ')
 
+    def Process_Chat(self):
+
+        print('chat processed')  
+
+    def Quit_Desired(self):
+
+        return self.chat == 'q'
+
+
+
+
     def Print_Fitness_Variable_Entered_Successfully(self):
 
         print('success!')
@@ -12,6 +23,7 @@ class CHAT:
 
         print('failure!')
 
+    
     def Quit_Desired(self):
 
         return self.chat == 'q'
