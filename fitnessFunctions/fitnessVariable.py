@@ -54,7 +54,12 @@ class FITNESS_VARIABLE:
 
         fig.colorbar(im , ax=axis[self.panelRow,self.panelColumn] , ticks = [-1,1] )
 
-        if self.name == c.nameOfFinalFitnessValue:
+ 
+        if self.name == c.nameOfRawSensorData:
+
+            self.Set_Ticks_For_Raw_Sensor_Data(axis)
+
+        elif self.name == c.nameOfFinalFitnessValue:
 
             self.Set_Ticks_For_Final_Fitness_Value(axis)
 
@@ -70,9 +75,13 @@ class FITNESS_VARIABLE:
 
         ticks = axis[self.panelRow,self.panelColumn].yaxis.get_ticklabels()
 
-        ticks[0].set_color('red')
+        robotSensorIndex = 0
 
-        ticks[1].set_color('green')
+        for tick in ticks:
+
+            tick.set_color( c.robotColors[robotSensorIndex] )
+
+            robotSensorIndex = robotSensorIndex + 1
 
     def Prepare_To_Draw(self,axis):
 
@@ -85,14 +94,27 @@ class FITNESS_VARIABLE:
         axis[self.panelRow,self.panelColumn].set_yticks([0 + 0.5 , self.rows - 0.5])
         axis[self.panelRow,self.panelColumn].set_xticks([0 + 0.5 , self.cols - 0.5])
 
-        axis[self.panelRow,self.panelColumn].set_yticklabels([0 , self.rows - 1])
-        axis[self.panelRow,self.panelColumn].set_xticklabels([0 , self.cols - 1])
+        axis[self.panelRow,self.panelColumn].set_yticklabels([1 , self.rows])
+        axis[self.panelRow,self.panelColumn].set_xticklabels([1 , self.cols])
 
     def Set_Ticks_For_Final_Fitness_Value(self,axis):
 
-            axis[self.panelRow,self.panelColumn].set_yticks([0.5])
-            axis[self.panelRow,self.panelColumn].set_xticks([0.5])
+        axis[self.panelRow,self.panelColumn].set_yticks([0.5])
+        axis[self.panelRow,self.panelColumn].set_xticks([0.5])
 
-            axis[self.panelRow,self.panelColumn].set_yticklabels([0])
-            axis[self.panelRow,self.panelColumn].set_xticklabels([0])
+        axis[self.panelRow,self.panelColumn].set_yticklabels([1])
+        axis[self.panelRow,self.panelColumn].set_xticklabels([1])
 
+    def Set_Ticks_For_Raw_Sensor_Data(self,axis):
+
+        axis[self.panelRow,self.panelColumn].set_yticks(       np.arange( 0 + 0.5 , self.rows + 0.5 ) )
+
+        axis[self.panelRow,self.panelColumn].set_yticklabels(  np.arange( 0 + 1   , self.rows + 1   ) )
+
+
+        axis[self.panelRow,self.panelColumn].set_xticks([0 + 0.5 , self.cols - 0.5])
+
+        axis[self.panelRow,self.panelColumn].set_xticklabels( [1 , self.cols] )
+
+       
+        
