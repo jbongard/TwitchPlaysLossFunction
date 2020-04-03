@@ -1,3 +1,7 @@
+import sys
+sys.path.insert(0, '..')
+import constants as c
+
 import sqlite3 as lite
 
 class DATABASE:
@@ -6,10 +10,17 @@ class DATABASE:
 
         self.Connect()
 
-    def Reset(self):
+        if self.Not_Yet_Created():
 
-        self.Destroy()
-        self.Create()
+            self.Create()
+
+    def Get_Table_Records(self,tableName):
+
+        executionString = "SELECT * FROM " + tableName
+
+        self.Safe_Execute(executionString)
+
+        return self.cur.fetchall()
 
 # -------------------- Private methods -------------------
 
@@ -20,17 +31,24 @@ class DATABASE:
 
     def Create(self):
 
-        pass
+        self.Create_Tables()
 
-    def Destroy(self):
+    def Create_Tables(self):
 
-        pass
+        command = "CREATE TABLE " + c.DATABASE_USER_TABLE
 
-        # self.Drop_Tables()
+        self.Safe_Execute(command)
 
-    def Drop_Tables(self):
+    def Not_Yet_Created(self):
 
-        pass
+        self.cur.execute(''' SELECT count(name) FROM sqlite_master WHERE type='table' ''')
 
-        # self.Drop_Table("BuyRequests")
+        numberOfTables = self.cur.fetchone()[0]
 
+        return numberOfTables == 0
+
+    def Safe_Execute(self,executionString):
+
+        self.cur.execute(executionString)
+
+        self.con.commit()
