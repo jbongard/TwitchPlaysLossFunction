@@ -14,6 +14,14 @@ class DATABASE:
 
             self.Create()
 
+    def Add_User(self, userName):
+
+        ID = self.Get_Next_Available_Record_ID_From_Table("Users")
+
+        params = (ID, userName)
+
+        self.Safe_Execute("INSERT INTO Users VALUES (?, ?)", params)
+
     def Get_Table_Records(self,tableName):
 
         executionString = "SELECT * FROM " + tableName
@@ -21,6 +29,15 @@ class DATABASE:
         self.Safe_Execute(executionString)
 
         return self.cur.fetchall()
+
+    def User_Exists(self, userName):
+
+        executionString = "SELECT * FROM Users WHERE Name=?"
+        params = (userName,)
+        self.Safe_Execute(executionString, params)
+        users = self.cur.fetchall()
+
+        return len(users) > 0
 
 # -------------------- Private methods -------------------
 
@@ -39,6 +56,17 @@ class DATABASE:
 
         self.Safe_Execute(command)
 
+    def Get_Next_Available_Record_ID_From_Table(self,tableName):
+
+        executionString = "SELECT Id FROM " + tableName + " ORDER BY Id DESC LIMIT 1"
+        self.Safe_Execute(executionString)
+        ID = self.cur.fetchone()
+
+        if not ID:
+            return 0
+        else:
+            return int(ID[0]) + 1
+
     def Not_Yet_Created(self):
 
         self.cur.execute(''' SELECT count(name) FROM sqlite_master WHERE type='table' ''')
@@ -47,8 +75,8 @@ class DATABASE:
 
         return numberOfTables == 0
 
-    def Safe_Execute(self,executionString):
+    def Safe_Execute(self,*args):
 
-        self.cur.execute(executionString)
+        self.cur.execute(*args)
 
         self.con.commit()
