@@ -1,6 +1,8 @@
-from chat import CHAT
-
 import sys
+sys.path.insert(0, '..')
+
+from chat              import CHAT
+from database.database import DATABASE
 
 def Get_UserName_And_ChatString():
 
@@ -29,13 +31,15 @@ def Quit_If_Requested(chatString):
 
 # ----------------------------- Main function ------------------------
 
+db = DATABASE()
+
 userName , chatString = Get_UserName_And_ChatString()
 
 while True:
 
     Quit_If_Requested(chatString)
 
-    chat = CHAT(userName,chatString) 
+    chat = CHAT(db,userName,chatString) 
 
     chat.Process()
 

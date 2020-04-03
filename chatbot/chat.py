@@ -1,29 +1,32 @@
 class CHAT:
 
-    def __init__(self,userName,chatString):
+    def __init__(self,db,userName,chatString):
 
-        self.userName = userName
+        self.db         = db
+
+        self.userName   = userName
 
         self.chatString = chatString
 
-        # self.chat = input('Type in chat [q to quit]: ')
-
     def Process(self):
 
-        self.Handle_New_User()
-
         self.Handle_Returning_User()
+
+        self.Handle_New_User()
 
 # ----------------- Private methods ---------------------
 
     def Handle_New_User(self):
 
-        if self.userName == 'newbie':
+        if not self.db.User_Exists(self.userName):
+
+            self.db.Add_User(self.userName)
 
             print('Welcome!')
-
+       
     def Handle_Returning_User(self):
 
-        if self.userName == 'veteran':
+        if self.db.User_Exists(self.userName):
 
             pass
+
