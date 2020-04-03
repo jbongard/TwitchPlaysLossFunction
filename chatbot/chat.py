@@ -8,30 +8,22 @@ class CHAT:
 
         # self.chat = input('Type in chat [q to quit]: ')
 
-    def Process_Chat(self):
+    def Process(self):
 
-        print('chat processed')  
+        self.Handle_New_User()
 
-    def Quit_Desired(self):
+        self.Handle_Returning_User()
 
-        return self.chat == 'q'
+# ----------------- Private methods ---------------------
 
+    def Handle_New_User(self):
 
+        if self.userName == 'newbie':
 
+            print('Welcome!')
 
-    def Print_Fitness_Variable_Entered_Successfully(self):
+    def Handle_Returning_User(self):
 
-        print('success!')
+        if self.userName == 'veteran':
 
-    def Print_Fitness_Variable_Entered_Unsuccessfully(self):
-
-        print('failure!')
-
-    
-    def Quit_Desired(self):
-
-        return self.chat == 'q'
-
-    def Valid_Fitness_Variable(self):
-
-        return len(self.chat) == 1 and self.chat >= 'a' and self.chat <= 'z'
+            pass

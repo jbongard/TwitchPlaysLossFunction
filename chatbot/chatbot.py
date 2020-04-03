@@ -21,12 +21,22 @@ def Get_UserName_And_ChatString():
  
         return userName , chatString
 
+def Quit_If_Requested(chatString):
+
+    if chatString == 'q':
+
+        exit()
+
 # ----------------------------- Main function ------------------------
 
 userName , chatString = Get_UserName_And_ChatString()
 
 while True:
 
+    Quit_If_Requested(chatString)
+
     chat = CHAT(userName,chatString) 
 
-    exit()
+    chat.Process()
+
+    chatString = input( userName + ': ' )
