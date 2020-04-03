@@ -1,8 +1,12 @@
 class CHAT:
 
-    def __init__(self):
+    def __init__(self,userName,chatString):
 
-        self.chat = input('Type in chat [q to quit]: ')
+        self.userName = userName
+
+        self.chatString = chatString
+
+        # self.chat = input('Type in chat [q to quit]: ')
 
     def Process_Chat(self):
 
