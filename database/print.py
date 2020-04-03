@@ -1,9 +1,13 @@
-    def Print_Buy_Requests(self):
-        print(c.databaseTableBuyRequests)
-        buyRequests = self.Get_Buy_Requests()
+import sys
+sys.path.insert(0, '..')
+import constants as c
 
-        for buyRequest in buyRequests:
-            print(buyRequest)
+from database import DATABASE
 
-        print('')
+db = DATABASE()
 
+print(c.DATABASE_USER_TABLE)
+
+records = db.Get_Table_Records('Users')
+
+print(records)
