@@ -40,7 +40,9 @@ class DATABASE:
 
     def Print(self):
 
-        print(c.DATABASE)
+        for tableName in c.DATABASE:
+
+            self.Print_Table(tableName)
     
     def User_Exists(self, userName):
 
@@ -108,6 +110,16 @@ class DATABASE:
         numberOfTables = self.cur.fetchone()[0]
 
         return numberOfTables == 0
+
+    def Print_Table(self,tableName):
+
+        print('')
+
+        print( tableName , c.DATABASE[tableName] )
+
+        for record in self.Get_Table_Records(tableName):
+
+            print(record)
 
     def Safe_Execute(self,*args):
 

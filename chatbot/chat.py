@@ -10,23 +10,24 @@ class CHAT:
 
     def Process(self):
 
-        self.Handle_Returning_User()
+        if self.New_User():
 
-        self.Handle_New_User()
+            self.Handle_New_User()
+
+        self.db.Add_Chat(self.chatString,self.userName)
 
 # ----------------- Private methods ---------------------
 
     def Handle_New_User(self):
 
-        if not self.db.User_Exists(self.userName):
+        self.db.Add_User(self.userName)
 
-            self.db.Add_User(self.userName)
-
-            print('Welcome!')
+        print('Welcome!')
        
     def Handle_Returning_User(self):
 
-        if self.db.User_Exists(self.userName):
+        pass
 
-            pass
+    def New_User(self):
 
+        return not self.db.User_Exists(self.userName)
