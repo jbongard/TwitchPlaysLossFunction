@@ -1,6 +1,10 @@
 import matplotlib
 import matplotlib.colors as colors
 
+# -------------------------- Database ------------------------------------------
+
+DATABASE_USER_TABLE          = "Users(Id INT, Name TEXT)"
+
 # ----------------------------- Robot ------------------------------------------
 
 ROBOT_OBJECTS_MAIN_BODY      = 0

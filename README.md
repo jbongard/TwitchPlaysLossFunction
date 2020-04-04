@@ -52,3 +52,18 @@ Hypothesis: A crowd can create more perverse-instantiation resistant objective f
 
 1. and so on.
 
+## This branch:
+
+1. A minimal database has been created.
+
+1. A minimal chatbot has been created, to simulate chat captured from Twitch.
+
+1. Multiple users can enter chat in serial or in parallel, triggering creation of records for them in the database.
+
+1. Video overview here: https://youtu.be/loGPVjNaVrM
+
+## Miscellaneous notes.
+
+1. Josh Powers: Why not use genetic programming to evolve fitness functions, where the
+fitnes of any one fitness function is how many people preferred robots evolved using it
+compared with others?
