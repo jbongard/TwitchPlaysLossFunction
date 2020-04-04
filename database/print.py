@@ -6,8 +6,5 @@ from database import DATABASE
 
 db = DATABASE()
 
-print(c.DATABASE_USER_TABLE)
+db.Print()
 
-records = db.Get_Table_Records('Users')
-
-print(records)

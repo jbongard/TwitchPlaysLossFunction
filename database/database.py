@@ -14,6 +14,14 @@ class DATABASE:
 
             self.Create()
 
+    def Add_Chat(self, chatString, userName):
+
+        ID = self.Get_Next_Available_Record_ID_From_Table("Chats")
+
+        params = (ID, chatString)
+
+        self.Safe_Execute("INSERT INTO Chats VALUES (?, ?)", params)
+
     def Add_User(self, userName):
 
         ID = self.Get_Next_Available_Record_ID_From_Table("Users")
@@ -30,6 +38,10 @@ class DATABASE:
 
         return self.cur.fetchall()
 
+    def Print(self):
+
+        print(c.DATABASE)
+    
     def User_Exists(self, userName):
 
         executionString = "SELECT * FROM Users WHERE Name=?"
@@ -48,11 +60,33 @@ class DATABASE:
 
     def Create(self):
 
-        self.Create_Tables()
+        for tableName in c.DATABASE:
 
-    def Create_Tables(self):
+            self.Create_Table(tableName)
 
-        command = "CREATE TABLE " + c.DATABASE_USER_TABLE
+    def Create_Table(self,tableName):
+
+        command = "CREATE TABLE " + tableName
+
+        command = command + "("
+
+        fieldIndex = 0
+
+        for fieldName in c.DATABASE[tableName]:
+
+            fieldType = c.DATABASE[tableName][fieldName]
+
+            command = command + fieldName + " " + fieldType
+
+            notLastField = fieldIndex != len(c.DATABASE[tableName]) - 1
+
+            if notLastField:
+
+                command = command + ","
+            else:
+                command = command + ")"
+
+            fieldIndex = fieldIndex + 1
 
         self.Safe_Execute(command)
 
